@@ -136,3 +136,6 @@ dmypy.json
 # Default ignored files
 /shelf/
 /workspace.xml
+
+# Scratch folder for ideas
+.scratch/
