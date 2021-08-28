@@ -1,5 +1,6 @@
 ## Part of this code was taken from the soil moisture sensor manual on joy-it.net https://joy-it.net/de/products/SEN-Moisture
 from time import sleep
+import datetime
 import board
 import busio
 import adafruit_ads1x15.ads1115 as ADS
