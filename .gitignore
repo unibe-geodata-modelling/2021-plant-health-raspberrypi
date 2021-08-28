@@ -1,6 +1,7 @@
 .idea/
 data/
 picSync/
+output/
 Pipfile*
 
 # Byte-compiled / optimized / DLL files
