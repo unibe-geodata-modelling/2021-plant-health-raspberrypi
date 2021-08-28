@@ -8,14 +8,18 @@ from adafruit_ads1x15.analog_in import AnalogIn
 import RPi.GPIO as GPIO
 
 def initialize():
-    """Initialize the soil moisture sensor and the ADC module. Returns the chan0 object."""
-    ## Create the I2C bus
-    i2c = busio.I2C(board.SCL, board.SDA)
-    ## Create the ADC object using the I2C bus
-    ads = ADS.ADS1115(i2c)
-    ## Create single-ended input on channel 0
-    chan0 = AnalogIn(ads, ADS.P0)
-    return chan0
+    try:
+        """Initialize the soil moisture sensor and the ADC module. Returns the chan0 object."""
+        ## Create the I2C bus
+        i2c = busio.I2C(board.SCL, board.SDA)
+        ## Create the ADC object using the I2C bus
+        ads = ADS.ADS1115(i2c)
+        ## Create single-ended input on channel 0
+        chan0 = AnalogIn(ads, ADS.P0)
+        print("Soil moisture sensor initialized.")
+        return chan0
+    except:
+        print("Soil moisture sensor could not be initialized.")
 
 def read_moisture(chan0):
     """Reads the voltage on the soil moisture sensor using chan0 as an argument."""
