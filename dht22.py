@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import csv
 
 csv_path = "/home/pi/KiraPi/output/sens.txt" # Where the measurements will be stored
-columns=['time', 'temp_c', 'temp_f', 'humidity', 'valid'] # The columns titles
+columns=['date', 'time', 'temp_c', 'temp_f', 'humidity', 'valid'] # The columns titles
 
 def dht_init(gpio):
     """
@@ -21,6 +21,7 @@ def dht_init(gpio):
         # Create pandas DataFrame
         df = pd.DataFrame(columns=columns)
         # Set the dtype of the time column to datetime64[ns] to have an interchangeable unit
+        df['date'] = pd.to_datetime(df['date'])
         df['time'] = pd.to_datetime(df['time'])
         # Create the DHT22 object with the corresponding GPIO pin number
         dht_sensor = DHT22(gpio) 
@@ -46,7 +47,9 @@ def dht_reader(dht_sensor):
         data = dht_sensor.read(retries=1)
     except TimeoutError: # If a TimeoutError arises, write all zeros and classify as invalid.
         data = {'temp_c': 0, 'temp_f': 0, 'humidity': 0, 'valid': False}
-    data["time"] = time.mktime(datetime.datetime.now().timetuple()) # Write the time of measurement
+    meas_datetime = datetime.datetime.now()
+    data['date'] = meas_datetime.date()
+    data['time'] = meas_datetime.time() # Write the time of measurement
     return data
 
 ##def dht_logger(dht_sensor):
