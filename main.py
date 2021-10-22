@@ -1,5 +1,6 @@
 # This is the main script to run the KiraPi workflow.
 
+import pandas as pd
 import moisture
 import datetime
 import dht22
@@ -14,4 +15,4 @@ gpio = 4 # BCM Numbering
 dht_sensor,df = dht22.dht_init(gpio)
 ##print(dht22.dht_reader(dht_sensor))
 #print (datetime.datetime.now())
-##dht22.dht22_multi_measure(dht_sensor,df, 2)
+df = dht22.dht22_multi_measure(dht_sensor,df,5)
