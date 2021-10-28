@@ -2,6 +2,7 @@ import pandas as pd
 ##import time, datetime
 import matplotlib.pyplot as plt
 
+## Plotter function
 def plotter(csv_path):
     """
     Read the values from a csv file and plot them
