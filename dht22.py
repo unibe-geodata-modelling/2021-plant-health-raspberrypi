@@ -1,14 +1,16 @@
 # This script interacts with the sensors; it reads the values and stores them into a numpy array.
-
+## Imports
 import pandas as pd
 from pigpio_dht import DHT22
 import time, datetime
 import matplotlib.pyplot as plt
 import csv
 
+## Initial Values
 csv_path = "/home/pi/KiraPi/output/sens.txt" # Where the measurements will be stored
-columns=['time', 'temp_c', 'temp_f', 'humidity', 'valid'] # The columns titles
+columns=['date', 'time', 'temp_c', 'temp_f', 'humidity', 'valid'] # The columns titles
 
+## Initialize the GPIO
 def dht_init(gpio):
     """
     Initialize the DHT22 sensor and return it
@@ -21,6 +23,7 @@ def dht_init(gpio):
         # Create pandas DataFrame
         df = pd.DataFrame(columns=columns)
         # Set the dtype of the time column to datetime64[ns] to have an interchangeable unit
+        df['date'] = pd.to_datetime(df['date'])
         df['time'] = pd.to_datetime(df['time'])
         # Create the DHT22 object with the corresponding GPIO pin number
         dht_sensor = DHT22(gpio) 
@@ -34,6 +37,7 @@ def dht_init(gpio):
     except:
         print("DHT22 sensor could not be initialized.")
 
+## Read DHT22 measurement
 def dht_reader(dht_sensor):
     """
     Return DHT22 sensor measurements in dictionary with time of measurement
@@ -46,7 +50,9 @@ def dht_reader(dht_sensor):
         data = dht_sensor.read(retries=1)
     except TimeoutError: # If a TimeoutError arises, write all zeros and classify as invalid.
         data = {'temp_c': 0, 'temp_f': 0, 'humidity': 0, 'valid': False}
-    data["time"] = time.mktime(datetime.datetime.now().timetuple()) # Write the time of measurement
+    meas_datetime = datetime.datetime.now()
+    data['date'] = meas_datetime.date()
+    data['time'] = meas_datetime.time() # Write the time of measurement
     return data
 
 ##def dht_logger(dht_sensor):
@@ -61,6 +67,8 @@ def dht_reader(dht_sensor):
 ##    df.to_csv(csv_path, header=None, index=None, sep=' ', mode='a')
 
 # Loops through a set of DHT22 measurements and adds the data to the received dataframe. Then appends to the csv file.
+
+## Do multiple measurements of DHT22
 def dht22_multi_measure(dht_sensor, df, ran): # takes the dht_sensor object, df dataframe and the number of planned measurements as arguments
     """
     Do a loop over a set of measurements, write to csv and DataFrame and return the latter
