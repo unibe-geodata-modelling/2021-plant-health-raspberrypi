@@ -42,7 +42,9 @@ def plotter(csv_path):
         fig.autofmt_xdate()
 ##        dates = dt.dates.date2num(df['time'])
 ##        plt.plot_date(dates, values)
-        
+
+        ## Save the plot to file
+        fig.savefig("/home/pi/KiraPi/output/figure.png")
         ## Show the plot
         plt.show()
     except:
