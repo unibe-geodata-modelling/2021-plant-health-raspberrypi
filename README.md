@@ -37,7 +37,7 @@
   <p align="center">
     The KiraPi system was created as part of the Seminar Geodata Analysis. It currently monitors air temperature as well as the relative humidity of the air through a DHT22 sensor. Furthermore, the collected data is represented in graphs. The project is built on top of a Raspberry Pi system and coded in Python3.
     <br />
-    <a href="https://github.com/networkscientist/KiraPi"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/networkscientist/KiraPi/wiki"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/networkscientist/KiraPi">View Demo</a>
