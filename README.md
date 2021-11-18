@@ -22,7 +22,6 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 
 
@@ -36,7 +35,7 @@
 <h3 align="center">KiraPi</h3>
 
   <p align="center">
-    project_description
+    The KiraPi system was created as part of the Seminar Geodata Analysis. It currently monitors air temperature as well as the relative humidity of the air through a DHT22 sensor. Furthermore, the collected data is represented in graphs. The project is built on top of a Raspberry Pi system and coded in Python3.
     <br />
     <a href="https://github.com/networkscientist/KiraPi"><strong>Explore the docs »</strong></a>
     <br />
@@ -84,7 +83,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `networkscientist`, `KiraPi`, `twitter_handle`, `linkedin_username`, `email`, `email_client`, `KiraPi`, `project_description`
+Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `email`, `email_client`,
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -92,15 +91,8 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 ### Built With
 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-
+* [Python3](https://python.org/)
+* [Raspbian](https://raspbian.org)
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -128,15 +120,15 @@ This is an example of how to list things you need to use the software and how to
    git clone https://github.com/networkscientist/KiraPi.git
    ```
 4. Update the BCM pin number in `main.py` to match your setting
-   ```python
+    ```python
     ## Initial Values
     gpio = 4 # BCM Numbering
-   ```
+    ```
 5. Update the path where your log file should be stored in `dht22.py`
-   ```python
+    ```python
     ## Initial Values
     csv_path = "/home/pi/KiraPi/output/sens.txt" # Where the measurements will be stored
-   ```
+    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -197,7 +189,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Peter Zweifel - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Peter Zweifel - email@email_client.com
 
 Project Link: [https://github.com/networkscientist/KiraPi](https://github.com/networkscientist/KiraPi)
 
@@ -213,7 +205,7 @@ Project Link: [https://github.com/networkscientist/KiraPi](https://github.com/ne
 * []()
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
+(https://twitter.com/twitter_handle)
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
@@ -228,6 +220,4 @@ Project Link: [https://github.com/networkscientist/KiraPi](https://github.com/ne
 [issues-url]: https://github.com/networkscientist/KiraPi/issues
 [license-shield]: https://img.shields.io/github/license/networkscientist/KiraPi.svg?style=for-the-badge
 [license-url]: https://github.com/networkscientist/KiraPi/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png
