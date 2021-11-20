@@ -1,0 +1,6 @@
+paths:
+    csv: "/home/pi/KiraPi/output/sens.txt"
+    fig: "/home/pi/KiraPi/output/figure.png"
+    output: "/home/pi/KiraPi/output/"
+other:
+    gpio_pin: 4

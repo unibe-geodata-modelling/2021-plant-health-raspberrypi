@@ -2,8 +2,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
+## Paths
+csv_path = "/home/pi/KiraPi/output/sens.txt"
 ## Plotter function
-def plotter(csv_path):
+def plotter():
     """
     Read the values from a csv file and plot them
 
