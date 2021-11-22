@@ -105,12 +105,21 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+Using Raspbian, you will need the pigpio packages in order to be able to access the GPIO pins from the python script. The most recent version can be found on the Github project page [pigpio](https://github.com/joan2937/pigpio/). Further installation instructions can be found on the project's web page [abyz.me.uk](https://abyz.me.uk/rpi/pigpio/download.html)
 
+Alternatively, you may use the apt package manager from a bash shell to install the packages.
+```shell
+sudo apt-get update
+sudo apt-get install pigpio python-pigpio python3-pigpio
+```
+
+You will additionally need pigpiod to run the pigpio library as a daemon:
+```shell
+sudo apt-get install pigpiod
+```
+Either run `pigpiod` with superuser rights before using the KiraPi scripts or add the daemon to the startup applications.
+
+For the purposes of the geodata seminar, KiraPi was set up with v79 of `pigpio`, installed through the apt package manager.
 ### Installation
 
 1. Set up the Raspberry Pi with Python3
