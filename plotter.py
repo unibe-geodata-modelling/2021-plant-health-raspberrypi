@@ -5,6 +5,7 @@ import numpy as np
 
 ## Paths
 csv_path = "/home/pi/KiraPi/output/sens.txt"
+
 ## Plotter function
 def plotter():
     """
@@ -17,10 +18,7 @@ def plotter():
         df['time'] = pd.to_datetime(df['time'])
         # Drop invalid measurements
         df = df[df.valid != False]
-        
-        ## Print info on the Dataframe
-        #print(df)
-        #df.info()
+
         ## Create figure and plot space
         fig, ax1 = plt.subplots(figsize=(10, 10))
 
@@ -33,7 +31,9 @@ def plotter():
         ax1.set(xlabel="Time",
                ylabel='Temp (°C)',
                title="Temperature Plot")
-        #Set the temperature range and tick distance to plot the y axis
+
+        ## Set the temperature range and tick distance to plot the y axis
+        # In this example, a range between 18 and 25°C is used.
         start, end = 18,25
         ax1.set_ylim([start,end])
         ax1.yaxis.set_ticks(np.arange(start, end, 1))
@@ -45,7 +45,7 @@ def plotter():
         ax2 = ax1.twinx()
         ax2.set_ylabel("Air Humidity (%)")
         ax2.set_ylim([40,100])
-        
+
         ax2.scatter(df['time'],
                     df["humidity"],
                     color = 'red')
@@ -60,9 +60,11 @@ def plotter():
         ax1.xaxis.set_major_formatter(mdates.DateFormatter('%H:%M'))
 
         ## Save the plot to file
+        # This will overwrite the current file
         fig.savefig("/home/pi/KiraPi/output/figure.png")
+
         ## Show the plot
         ##plt.show()
     except:
         df.info()
-        print("An error has occured.")
+        print("An error has occured during plotting.")

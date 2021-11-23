@@ -26,7 +26,7 @@ def dht_init(gpio):
         df['date'] = pd.to_datetime(df['date'])
         df['time'] = pd.to_datetime(df['time'])
         # Create the DHT22 object with the corresponding GPIO pin number
-        dht_sensor = DHT22(gpio) 
+        dht_sensor = DHT22(gpio)
         # Create a CSV file with given columns names
         with open(csv_path, 'w', newline='') as file:
             writer = csv.writer(file, delimiter=' ') # The separator is a single space
@@ -50,9 +50,10 @@ def dht_reader(dht_sensor):
         data = dht_sensor.read(retries=1)
     except TimeoutError: # If a TimeoutError arises, write all zeros and classify as invalid.
         data = {'temp_c': 0, 'temp_f': 0, 'humidity': 0, 'valid': False}
+    # Write time and date of measurement
     meas_datetime = datetime.datetime.now()
     data['date'] = meas_datetime.date()
-    data['time'] = meas_datetime.time() # Write the time of measurement
+    data['time'] = meas_datetime.time()
     return data
 
 ##def dht_logger(dht_sensor):
