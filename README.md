@@ -84,7 +84,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<img src="images/figure.png" width="50%" />
 
 This project has been created as part of the course _Geodata Analysis and Modelling_, having taken place during 2021 at the University Bern. Big thank go to [Pascal Horton](@pascalhorton) and [Andreas Paul Zischg](@zischg) for leading the seminar.
 
@@ -164,10 +164,15 @@ To start a measurement batch, simply start the script with python in your enviro
 pipenv run python3 main.py
 ```
 Without error, you will get two files: `sens.txt` and `figure.png`.
-<img src="images/figure.png" width="50%" />
-*The resulting plot*
-![Result Table][result-table]
-*The resulting CSV file*
+<figure>
+  <img src="images/figure.png" width="50%" />
+  <figcaption>The resulting plot</figcaption><br />
+</figure>
+<br />
+<figure>
+  <img src="images/results.png" width="50%" />
+  <figcaption>The resulting table</figcaption>
+</figure>
 
 ### Functions
 If you want to call the functions provided in the KiraPi folder, simply load the files into your favourite editor and call the desired function. Since my Raspi3 lacked the power to run PyCharm, I used IdleX on Raspbian through a remote desktop session.
