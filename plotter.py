@@ -62,7 +62,7 @@ def plotter():
         ## Save the plot to file
         fig.savefig("/home/pi/KiraPi/output/figure.png")
         ## Show the plot
-        plt.show()
+        ##plt.show()
     except:
         df.info()
         print("An error has occured.")
